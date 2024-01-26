@@ -1,7 +1,7 @@
 <div class='container'>
   <div id='word-container'>
-    <% @text.words.each do |word| %>
-      <div class="word">
+    <% @text.words.order(:id).each do |word| %>
+      <div class="word" id="<%= word.id %>">
         <%= word.content %>
       </div>
       <div class="space">

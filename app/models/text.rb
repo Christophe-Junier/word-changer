@@ -5,7 +5,7 @@ class Text < ApplicationRecord
 
   after_create :split_into_words
 
-  scope :not_recently_updated, -> { where("updated_at": ..5.minutes.ago) }
+  scope :not_recently_updated, -> { where("updated_at": ..1.minutes.ago) }
   def split_into_words
     words = self.content.split(' ')
     words.each do |word|

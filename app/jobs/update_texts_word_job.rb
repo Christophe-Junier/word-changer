@@ -13,5 +13,6 @@ class UpdateTextsWordJob < ActiveJob::Base
       })
     random_word.update(content: response.dig("choices", 0, "message", "content"))
     text.update(updated_at: DateTime.current)
+    ActionCable.server.broadcast("the_text", random_word.id)
   end
 end
