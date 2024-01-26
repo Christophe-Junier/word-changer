@@ -1,0 +1,12 @@
+<div class='container'>
+  <div id='word-container'>
+    <% @text.words.each do |word| %>
+      <div class="word">
+        <%= word.content %>
+      </div>
+      <div class="space">
+        &nbsp;
+      </div>
+    <% end %>
+  </div>
+</div>
