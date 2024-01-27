@@ -1,4 +1,4 @@
-<div class='container'>
+<div class='container' id="<%= @text.id %>">
   <div id='word-container'>
     <% @text.words.order(:id).each do |word| %>
       <div class="word" id="<%= word.id %>">
@@ -10,3 +10,21 @@
     <% end %>
   </div>
 </div>
+
+<script>
+    let text_id = $('.container').attr('id');
+    setInterval(function(){
+        $.ajax({
+            type: "GET",
+            url: '/texts/' + text_id + '/words',
+            success: function(data){
+                data.forEach((element) => {
+                    //element[0] is id
+                    //element[1] is content
+                    $('.word#' + element[0]).text(element[1])
+                });
+            }
+        });
+        }, 30000
+    );
+</script>
