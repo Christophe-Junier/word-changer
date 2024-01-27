@@ -1,3 +1,3 @@
 OpenAI.configure do |config|
-  config.access_token = "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"
+  config.access_token = ENV['SECRET_KEY']
 end
